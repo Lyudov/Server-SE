@@ -13,22 +13,8 @@ mongoose
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-const allowedOrigins = ["http://localhost:4200"];
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Check if the origin is in the list of allowed origins
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // Enable credentials (e.g., cookies, authorization headers)
-  })
-);
 
-// app.use(cors());
+app.use(cors());
 // app.use(auth);
 
 // app.use((req, res, next) => {
